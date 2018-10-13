@@ -13,7 +13,8 @@ nav {
   nav .logo {
     height: 6vh;
     width: 12.5vw;
-    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+    -webkit-clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
+            clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 0% 100%);
     border: 1px solid white;
     border-right: none;
     display: flex;
@@ -21,16 +22,19 @@ nav {
     align-items: center;
     justify-content: flex-end;
     cursor: pointer;
-    filter: drop-shadow(1rem 1rem 0.5rem black); }
+    -webkit-filter: drop-shadow(1rem 1rem 0.5rem black);
+            filter: drop-shadow(1rem 1rem 0.5rem black); }
     nav .logo h5 {
       color: white;
       font-weight: 100;
       font-family: 'Lato';
-      filter: drop-shadow(1rem 1rem 0.5rem black);
+      -webkit-filter: drop-shadow(1rem 1rem 0.5rem black);
+              filter: drop-shadow(1rem 1rem 0.5rem black);
       transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1); }
     nav .logo__p {
       font-size: 4rem;
-      transform: rotateY(180deg) translateX(-1rem);
+      -webkit-transform: rotateY(180deg) translateX(-1rem);
+              transform: rotateY(180deg) translateX(-1rem);
       transition: all .5s; }
     nav .logo__m {
       margin-right: 2vw;
@@ -43,11 +47,14 @@ nav {
     height: 4.5vh;
     width: 4.5vw;
     margin: 1vh 0;
-    transform-origin: 100%;
-    transform: scaleX(0);
+    -webkit-transform-origin: 100%;
+            transform-origin: 100%;
+    -webkit-transform: scaleX(0);
+            transform: scaleX(0);
     transition: all cubic-bezier(0.165, 0.84, 0.44, 1) 0.5s; }
     nav li img {
-      filter: drop-shadow(1rem 1rem 0.5rem black);
+      -webkit-filter: drop-shadow(1rem 1rem 0.5rem black);
+              filter: drop-shadow(1rem 1rem 0.5rem black);
       height: 100%;
       width: 100%; }
     nav li:nth-child(2) {
@@ -55,9 +62,11 @@ nav {
     nav li:nth-child(3) {
       transition-delay: .4s; }
   nav:hover .logo__p {
-    transform: rotateY(0) translateX(0); }
+    -webkit-transform: rotateY(0) translateX(0);
+            transform: rotateY(0) translateX(0); }
   nav:hover ul li {
-    transform: scaleX(1); }
+    -webkit-transform: scaleX(1);
+            transform: scaleX(1); }
 
 *,
 *::before,
@@ -71,7 +80,18 @@ html {
   box-sizing: border-box; }
 
 body {
+  height: 100vh;
+  width: 100vw;
   background: purple;
   display: flex;
   align-items: center;
   justify-content: center; }
+
+.canvas {
+  height: 60vh;
+  width: 50vw;
+  border: 1px solid black;
+  display: grid;
+  grid-template: repeat(10, 1fr)/repeat(10, 1fr); }
+  .canvas > * {
+    border: 1px solid black; }
