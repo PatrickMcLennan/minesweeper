@@ -1,11 +1,23 @@
 @import 'logo/nav';
 
+@mixin hover {
+  transition: all .6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  &:hover {
+    transform: scale(1.05);
+  }
+  &:active {
+    transform: scale(.95);
+  }
+}
+
 *,
 *::before,
 *::after {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  font-family: 'lato';
+  color: white;
 }
 html {
   font-size: 62.5%;
@@ -14,20 +26,59 @@ html {
 body {
   height: 100vh;
   width: 100vw;
-  background: purple;
+  background-image: linear-gradient(to bottom right, lighten(#d35400, 10%), darken(#d35400, 5%));
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 }
 
 .canvas {
   height: 60vh;
   width: 50vw;
-  border: 1px solid black;
+  border: 1px solid white;
   display: grid;
   grid-template: repeat(10, 1fr) / repeat(10, 1fr);
 
   & > * {
-    border: 1px solid black;
+    border: 1px solid white;
+    cursor: pointer;
+    background: rgba(white, .25);
+    @include hover;
+  }
+}
+
+.info {
+  width: 100vw;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-evenly;
+
+  & h4,
+  h5,
+  button {
+    text-transform: uppercase;
+    letter-spacing: .4rem;
+  }
+  & button {
+    background: none;
+    padding: 1rem 2rem;
+    align-self: flex-start;
+    cursor: pointer;
+    @include hover;
+  }
+
+  & h4::after {
+    content: '';
+    display: block;
+    background: white;
+    width: 100%;
+    height: 1px;
+    margin: 1rem 0;
+  }
+
+  & h5 {
+    font-size: 2rem;
+    font-weight: 100;
   }
 }
